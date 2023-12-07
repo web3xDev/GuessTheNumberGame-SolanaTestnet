@@ -1,0 +1,10 @@
+@font-face {
+  font-family: mainFont;
+  src: url(../assets/visitor1.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  overflow-y: hidden !important;
+}

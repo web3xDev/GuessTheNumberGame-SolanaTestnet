@@ -1,0 +1,101 @@
+{
+  "version": "0.1.0",
+  "name": "guess_number",
+  "instructions": [
+    {
+      "name": "initVault",
+      "accounts": [
+        { "name": "gameVault", "isMut": true, "isSigner": false },
+        { "name": "master", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "gameName", "type": "string" },
+        { "name": "treasuryAmount", "type": "u64" }
+      ]
+    },
+    {
+      "name": "makeGuess",
+      "accounts": [
+        { "name": "guess", "isMut": true, "isSigner": false },
+        { "name": "gameVault", "isMut": true, "isSigner": false },
+        { "name": "signer", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "guessedNum", "type": "u8" },
+        { "name": "amount", "type": "u64" }
+      ]
+    },
+    {
+      "name": "generateRandom",
+      "accounts": [
+        { "name": "newResult", "isMut": true, "isSigner": false },
+        { "name": "guess", "isMut": true, "isSigner": false },
+        { "name": "gameVault", "isMut": true, "isSigner": false },
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [{ "name": "index", "type": "u8" }]
+    },
+    {
+      "name": "claimReward",
+      "accounts": [
+        { "name": "newResult", "isMut": true, "isSigner": false },
+        { "name": "guess", "isMut": true, "isSigner": false },
+        { "name": "gameVault", "isMut": true, "isSigner": false },
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": []
+    },
+    {
+      "name": "withdrawFromVault",
+      "accounts": [
+        { "name": "gameVault", "isMut": true, "isSigner": false },
+        { "name": "master", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "GameVault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "master", "type": "publicKey" },
+          { "name": "treasuryAmount", "type": "u64" },
+          { "name": "gameName", "type": "string" },
+          { "name": "gameId", "type": "u8" }
+        ]
+      }
+    },
+    {
+      "name": "Guess",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "user", "type": "publicKey" },
+          { "name": "guessedNum", "type": "u8" },
+          { "name": "amount", "type": "u64" },
+          { "name": "guessId", "type": "u8" }
+        ]
+      }
+    },
+    {
+      "name": "NewResult",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "authority", "type": "publicKey" },
+          { "name": "generatedRand", "type": "u32" },
+          { "name": "betResult", "type": "string" },
+          { "name": "totalAmount", "type": "u64" },
+          { "name": "resultId", "type": "u8" }
+        ]
+      }
+    }
+  ]
+}
