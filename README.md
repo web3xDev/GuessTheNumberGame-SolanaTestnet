@@ -3,6 +3,7 @@
 ## Introduction
 
 Welcome to "Guess the Number", an engaging blockchain game built on the Solana Testnet.
+As a challenge, I learned Solana from scratch and used it along with Anchor and solana/web3.js to create this blockchain game in just 10 days. I'm thrilled to share the results of this educational and fun experience with you!
 
 ## Features
 
@@ -23,6 +24,30 @@ Welcome to "Guess the Number", an engaging blockchain game built on the Solana T
 ## Screenshot
 
 ![SS](./src/assets/ss.png)
+
+## Prerequisites
+
+- npm or Yarn
+- Phantom wallet extension installed in the browser
+
+## Installation and Setup
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/web3xDev/GuessTheNumberGame-SolanaTestnet
+   ```
+
+2. **Install Dependencies:**
+
+   ```bash
+   yarn
+   ```
+
+3. **Start the React App:**
+   ```bash
+   yarn dev
+   ```
 
 ## Customization for Mainnet and Disclaimer
 
